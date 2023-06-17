@@ -28,6 +28,7 @@ class Check:
     ingesting = False
     prompting = False
     prompter = None
+    responses = []
 
 @app.after_request
 def after_request(response):
@@ -197,7 +198,7 @@ def prompt():
     return render_template("prompt.html") 
 
 def execute_prompting(folder):
-    Check.prompter = Prompt(folder)
+    Check.prompter = Prompt(os.path.join("db", folder))
     p = Check.prompter.Process()
     if p is None:
         Check.prompting = True
@@ -227,9 +228,26 @@ def logout():
 @login_required
 def query():
     q = request.args.get("q")
-   
-    return Check.prompter.Output(q)
+    identifier = request.args.get("id")
+    thread = Thread(target=returnAnswer, args=(q, identifier))
+    thread.start()
 
+def returnAnswer(query, identifier):
+    
+    answer = Check.prompter.Query(query)
+    Check.responses.append({"answer": answer['answer'], "query": query, "identifier": identifier})
+
+@app.route("/answer")
+@login_required
+def answer():
+    q = request.args.get("q")
+    identifier = request.args.get("id")
+
+    for datum in Check.responses:
+        if datum['query'] == q and identifier == datum["identifier"]:
+            return jsonify({"return": True, "answer": datum["answer"]})
+       
+    return jsonify({"return": False})
 # for errors
 @app.errorhandler(404)
 def page_not_found(e):

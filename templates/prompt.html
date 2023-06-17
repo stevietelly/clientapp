@@ -78,30 +78,31 @@ Prompt Window
 {% block main %}
 <div class="prompt">
     <ul class="prompt-list">
-      <li class="prompt-item">Example Prompt 1</li>
-      <li class="prompt-item">Example Prompt 2</li>
-      <li class="prompt-item">Example Prompt 3</li>
+     
      
     </ul>
   </div>
+  <style>
+    /* Style for the disabled input element */
+    #userInput[disabled] {
+      background-color: #f1f1f1;
+      cursor: not-allowed;
+      color: #999999;
+    }
+  </style>
 
   <div class="user-prompt">
     <input type="text" id="userInput" placeholder="Enter a prompt" autofocus>
   </div>
   <script>
-    document.getElementById('userInput').addEventListener('keydown', function(e) {
-      if (e.key === 'Enter' && e.target.value.trim() !== '') {
-        var userInput = e.target.value.trim();
-
-        
+     function checkCondition(query, id) {
             // Send an AJAX request to the Flask endpoint
             $.ajax({
-                url: '/query?q=' + userInput,
+                url: '/answer?q='+query+"&id="+id,
                 method: 'GET',
                 success: function(response) {
-                   
-        // Create new prompt element
-        var newPrompt = document.createElement('li');
+                    if (response.return) {
+                      var newPrompt = document.createElement('li');
         newPrompt.className = 'prompt-item';
         newPrompt.textContent = response.answer;
 
@@ -111,12 +112,45 @@ Prompt Window
 
         // Scroll to the bottom of the prompt list
         promptList.scrollTop = promptList.scrollHeight;
+        var userInput = document.getElementById("userInput");
+        userInput.disabled = false;
+        
 
-        // Clear the input field
-        e.target.value = '';
+                    } else {
+                        // If the condition is not met, repeat the process after a delay
+                        setTimeout(()=>{checkCondition(query, id)}, 1000); // Adjust the delay as needed
+                      
+                    }
                 }
             });
+        }
+
+    var count = 0;
+    document.getElementById('userInput').addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' && e.target.value.trim() !== '') {
+        var userInput = e.target.value.trim();
+        e.target.value = '';
+        var input = document.getElementById("userInput");
+        count += 1
+      // Disable the input element
+      input.disabled = true;
+
+
+        
+            // Send an AJAX request to the Flask endpoint
+            $.ajax({
+                url: '/query?q=' + userInput + "&id=" + count,
+                method: 'GET'
+              
+            });
+            var currentURL = window.location.href
+    var url = new URL(currentURL)
+
     
+
+  
+
+    checkCondition(userInput, count)
 
     
 
