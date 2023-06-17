@@ -1,0 +1,46 @@
+
+{% extends "tags.html" %}
+
+{% block title %}
+Upload File(s)
+{% endblock %}
+
+{% block main %}
+
+<div class="container upload">
+    <h1 class="color-primary">File Upload</h1>
+    <form action="/upload" method="post" enctype="multipart/form-data" id="uploadForm">
+        <div class="form-group">
+            <label for="fileInput">Select File(s):</label>
+            <input type="file" id="fileInput" name="file" multiple>
+            <label for="fileInput" class="btn">Choose File(s)</label>
+        </div>
+        <div class="selected-files">
+            <h3>Selected Files:</h3>
+            <ul id="selectedFilesList">
+                <span>no files selected</span>
+            </ul>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Upload" class="btn" >
+        </div>
+    </form>
+
+
+</div>
+<script>
+    document.getElementById('fileInput').addEventListener('change', function(e) {
+      var fileList = e.target.files;
+      var selectedFilesList = document.getElementById('selectedFilesList');
+      selectedFilesList.innerHTML = '';
+
+      for (var i = 0; i < fileList.length; i++) {
+        var listItem = document.createElement('li');
+        listItem.textContent = fileList[i].name;
+        selectedFilesList.appendChild(listItem);
+      }
+    });
+
+  
+  </script>
+{% endblock %}

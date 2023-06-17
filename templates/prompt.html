@@ -1,0 +1,126 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+  <title>ChatGPT Interface</title>
+  <style>
+    
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+      position: relative;
+    }
+
+    .prompt-list {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+      max-height: calc(100vh - 100px); /* Adjust the height as needed */
+      overflow-y: scroll;
+      width: 100%; /* Added */
+    }
+
+    .prompt-item {
+      background-color: #fff;
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 10px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .prompt-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .user-prompt {
+      background-color: #f1f1f1;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      padding: 10px;
+      box-sizing: border-box;
+    }
+
+    .user-prompt input {
+      border: none;
+      outline: none;
+      width: 100%;
+      padding: 10px;
+      box-sizing: border-box;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <ul class="prompt-list">
+      <li class="prompt-item">Example Prompt 1</li>
+      <li class="prompt-item">Example Prompt 2</li>
+      <li class="prompt-item">Example Prompt 3</li>
+     
+    </ul>
+  </div>
+
+  <div class="user-prompt">
+    <input type="text" id="userInput" placeholder="Enter a prompt" autofocus>
+  </div>
+
+ 
+</body>
+</html> -->
+{% extends "tags.html" %}
+
+{% block title %}
+Prompt Window
+{% endblock %}
+
+{% block main %}
+<div class="prompt">
+    <ul class="prompt-list">
+      <li class="prompt-item">Example Prompt 1</li>
+      <li class="prompt-item">Example Prompt 2</li>
+      <li class="prompt-item">Example Prompt 3</li>
+     
+    </ul>
+  </div>
+
+  <div class="user-prompt">
+    <input type="text" id="userInput" placeholder="Enter a prompt" autofocus>
+  </div>
+  <script>
+    document.getElementById('userInput').addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' && e.target.value.trim() !== '') {
+        var userInput = e.target.value.trim();
+
+        
+            // Send an AJAX request to the Flask endpoint
+            $.ajax({
+                url: '/query?q=' + userInput,
+                method: 'GET',
+                success: function(response) {
+                   
+        // Create new prompt element
+        var newPrompt = document.createElement('li');
+        newPrompt.className = 'prompt-item';
+        newPrompt.textContent = response.answer;
+
+        // Append new prompt to the prompt list
+        var promptList = document.querySelector('.prompt-list');
+        promptList.appendChild(newPrompt);
+
+        // Scroll to the bottom of the prompt list
+        promptList.scrollTop = promptList.scrollHeight;
+
+        // Clear the input field
+        e.target.value = '';
+                }
+            });
+    
+
+    
+
+      }
+    });
+  </script>
+{% endblock %}

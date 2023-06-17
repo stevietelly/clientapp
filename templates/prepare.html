@@ -1,0 +1,48 @@
+{% extends "tags.html" %}
+
+{% block title %}
+Processing Documents
+{% endblock %}
+
+{% block main %}
+<div class="container upload">
+    <h4 class="color-primary">Please wait while the prompt is prepared. This may take a while depending on your RAM</h4>
+    <button class="btn" id="gotoprompt" disabled>Prompt</button>
+</div>
+<script>
+      function checkCondition() {
+            // Send an AJAX request to the Flask endpoint
+            $.ajax({
+                url: '/check_prompting',
+                method: 'GET',
+                success: function(response) {
+                    if (response.condition_met) {
+                        // Enable the button if the condition is met
+                        document.getElementById('gotoprompt').disabled = false;
+                    } else {
+                        // If the condition is not met, repeat the process after a delay
+                        setTimeout(checkCondition, 1000); // Adjust the delay as needed
+                      
+                    }
+                }
+            });
+        }
+
+        // Start checking the condition when the page loads
+        $(document).ready(function() {
+            checkCondition();
+        });
+document.getElementById("gotoprompt").addEventListener("click", function(){
+    
+    var currentURL = window.location.href
+    var url = new URL(currentURL)
+
+    var queryParam = url.searchParams.get("q")
+
+    var newURL = "/prompt?q=" + queryParam
+
+    window.location.href = newURL
+
+})
+</script>
+{% endblock %}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, width=device-width">
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="static/style/style.css">
+    <link rel="stylesheet" href="static/style/utilities.css">
+    <script src="static/script/script.js"></script>
+
+    <title>{% block title %}{% endblock %}</title>
+</head>
+
+<body>
+   
+    {% if session %}
+    <div class="navbar">
+        <div class="left">
+          <h1>Private GPT</h1>
+        </div>
+        <div class="right">
+          <div class="account-info">
+            <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10" />
+              <path d="M17.8 17.8a5 5 0 0 1-7.1 0" />
+            </svg> -->
+            <span>{{session['name']}} (@{{session['username']}})</span>
+          </div>
+          <div class="flex center-flex g-1">
+             <a class="links" href="{{url_for('logout', q=request.args.get('q'))}}">Logout</a>
+             
+             {% if request.endpoint == 'prompt'%}
+          <a class="links" href="{{url_for('upload', q=request.args.get('q'))}}">Upload File</a>
+          {% endif %}
+          </div>
+         
+        </div>
+      </div>
+{% endif %}
+
+
+        {% block main %}{% endblock %}
+ 
+
+
+
+</body>
+
+</html>

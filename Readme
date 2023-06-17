@@ -1,0 +1,32 @@
+Hello,
+Everything Basically remains the same from GPT4All,
+Except for the source directory and the persistent directory inside the .env file
+
+The program accepts the input from the user and downloads it into the uploads folder,
+thats during ingestion and then asks for prompts from the Prompts file inside backend.
+
+It was necessary to change some of the backend code to suite the how websites work
+which means i had to remove alot of functionality that was used to handle command line parsing.
+
+My RAM is 4GB and even with the simplest file, the program made my computer crash a few times,
+so folllow the recommended RAM size in the documentation for GPT4All whcich is the llm i was using,
+use higher than 4GB if possible.
+
+And Lastly, if anything is to go wrong it will inside the Prompt file in the Backend folder, so for any revisions, text me and ill show you the way foward cause the machine im currently
+using was not able to fully process that part so i had to build simulations for it.
+
+Thank you tthough for the experience, i enjoyed greatly handlingyour project, im new to upwork 
+so if you could give me a good rating i would be grateful.
+
+
+Using the project
+First setup the requirements for privateGPT 
+download your preffered LLM and place it in models
+modify the .env folder based on the LLM you have chosen
+
+run `pip install -r requirements.txt`
+to install all modules i used
+
+the run `python -m flask --app App.py run`
+
+for the users/test data i used check `SCHEMA.sql`

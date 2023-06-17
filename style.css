@@ -1,0 +1,646 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400&display=swap");
+:root {
+  --primary-color: #047aed;
+  --secondary-color: #1c3fa8;
+  --dark-color: #002240;
+  --light-color: #f4f4f4;
+  --lighter-color: #f4f4f479;
+  --grey-color: #a7a5a5;
+  --green-color: rgba(9, 128, 9, 0.781);
+  --red-color: rgba(221, 38, 38, 0.938);
+}
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Lato", sans-serif;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  color: #333;
+  line-height: 1.6;
+}
+ul {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  color: #333;
+}
+
+h1,
+h2 {
+  font-weight: 300;
+  line-height: 1.2;
+  margin: 10px, 0;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+}
+
+/* Navbar */
+.navbar {
+  background-color: var(--primary-color);
+  color: var(--light-color);
+  padding: 10px 0;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+.navbar .container {
+  justify-content: space-between;
+}
+.navbar ul {
+  display: flex;
+  gap: 30px;
+}
+.navbar a {
+  color: white;
+  padding: 10px;
+  margin: 5px;
+}
+.navbar a.active {
+  color: chocolate;
+  background-color: var(--light-color);
+}
+.navbar a:hover {
+  border-bottom: var(--light-color) solid 2px;
+}
+.navbar .profileimg {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+.navbar .grid {
+  gap: 2px;
+}
+
+.navbox {
+  height: 100%;
+}
+.miniprofile .profile {
+  flex-direction: column;
+  align-items: flex-start;
+}
+.profile .name {
+  display: flex;
+  font-size: larger;
+  padding: 0;
+}
+.profile .username {
+  display: flex;
+  align-self: center;
+  color: #a7a5a5;
+  justify-items: flex-start;
+}
+.miniprofile {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.profile .flex {
+  padding: 0;
+  margin: 0;
+}
+/* Main Body */
+.mainbody .card .flex {
+  flex-direction: column;
+}
+.mainbody .grid {
+  grid-template-columns: 1fr 2fr;
+}
+.head-tt {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+/* Content */
+.content {
+  border-radius: 2px;
+  margin-top: 15px;
+  padding: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.content .card {
+  height: 350px;
+  position: relative;
+  justify-self: flex-end;
+  z-index: 100;
+}
+.content h1 {
+  margin-bottom: 10px;
+}
+/* Image Holder */
+.imgholder {
+  width: 100%;
+  display: inline;
+  gap: 10px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+.polaroid {
+  display: block;
+
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.polaroid img {
+  height: 300px;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 5px;
+}
+.polaroid .container {
+  text-align: center;
+}
+
+/* Inputs */
+input[type="text"],
+input[type="email"],
+input[type="date"],
+input[type="number"],
+input[type="password"] {
+  width: 100%;
+  background-color: #a5999979;
+  border: none;
+  outline: none;
+  height: 40px;
+  border-radius: 0.5px;
+  margin-left: 5px;
+  padding-bottom: 5px;
+  padding: 12px;
+  margin-bottom: 20px;
+}
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="date"]:focus,
+input[type="number"]:focus,
+input[type="password"]:focus {
+  border-bottom: var(--primary-color) solid 2px;
+}
+label {
+  margin-left: 5px;
+}
+
+/* Form Box */
+.form-box .namebox {
+  gap: 10px;
+  grid-template-columns: 8% 45% 45%;
+}
+.form-box .idbox {
+  gap: 10px;
+  grid-template-columns: 33% 32.5% 32.5%;
+}
+
+/* Footer */
+.footer {
+  color: var(--light-color);
+  margin-top: 2opx;
+  padding-bottom: 30px;
+  padding-top: 30px;
+  background-color: var(--primary-color);
+  height: 100px;
+}
+
+/* Login Form */
+.credholder {
+  margin-top: 50%;
+  margin-bottom: 50%;
+}
+.loginform .aholder {
+  margin-bottom: 5px;
+}
+.loginform a {
+  font-size: smaller;
+  font-weight: lighter;
+  color: #047aed;
+}
+/* Main Window and Components */
+.sidebar {
+  position: absolute;
+  top: 63px;
+  left: 0;
+  height: 100%;
+  width: 250px;
+  padding-top: 10px;
+}
+.sidebar h1 {
+  padding: 0px 20px;
+  font-size: xx-large;
+}
+.sidebar li {
+  width: 250px;
+}
+
+.sidebar a {
+  color: var(--light-color);
+  width: 100%;
+  display: inline-block;
+  padding: 10px 10px;
+  cursor: pointer;
+}
+.sidebar button {
+  width: 100%;
+  padding: 20px 20px;
+  text-align: left;
+  background-color: inherit;
+  outline: none;
+  border: none;
+  color: var(--light-color);
+  font-size: 15px;
+  margin-right: 20px;
+}
+.sidebar button:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+  color: var(--light-color);
+  cursor: pointer;
+}
+.sidebar button .active {
+  background-color: var(--light-color);
+}
+.sidebar a:hover {
+  background-color: var(--light-color);
+  color: var(--primary-color);
+  cursor: pointer;
+}
+.sidebar a .activity {
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+}
+
+/* Work area and Tabs */
+.mainwindow .container{
+  max-width: 1100px;
+  margin: 0 auto;
+  overflow: auto;
+  padding: 0 40px;
+  /* height: 100%; */
+}
+.work-area {
+  position: absolute;
+  top: 70px;
+  left: 250px;
+  right: 0px;
+  width: 80%;
+  display: inline-block;
+  height: 100%;
+  align-items: center;
+}
+.tab .card {
+  padding: 0;
+  width: 100%;
+  height: 70px;
+  align-content: center;
+  border-radius: 0;
+}
+.tab .card .container{
+  display: flex;
+  height: 100%;
+}
+.tab .card .flex {
+  justify-content: space-between;
+}
+.tab .btn {
+  border-radius: 0;
+}
+.tab h3 {
+  color: var(--secondary-color);
+}
+.tab .stats-heading {
+  color: var(--grey-color);
+}
+.lbl {
+  color: var(--grey-color);
+  font-size: small;
+}
+.asst-inputs {
+  height: 30px;
+  outline: none;
+  border: var(--grey-color) solid 1px;
+  border-radius: 10px;
+  padding: 10px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.asst-inputs:focus {
+  border-bottom: var(--primary-color) solid 2px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+.border-box {
+  border-bottom: var(--grey-color) 2px solid;
+  justify-content: space-around;
+  padding: 5px 5px;
+  display: grid;
+  grid-template-columns: 10% 30% 45% 15%;
+}
+.border-box input[type="file"] {
+  width: 70%;
+  background-color: rgba(59, 59, 110, 0.205);
+  align-self: center;
+  justify-self: center;
+  border-radius: 5px;
+  padding: 5px;
+  border: 1px var(--grey-color) solid;
+  height: 50px;
+  border-radius: 0px;
+}
+.border-box input[type="file"]::file-selector-button {
+  content: "Pick an excel File";
+  border-radius: none;
+  background-color: #047aed;
+  outline: none;
+  border: none;
+  height: 40px;
+  color: var(--light-color);
+  align-items: center;
+  font-weight: 700;
+}
+.border-box input[type="file"]::file-selector-button:hover {
+  color: var(--primary-color);
+  background-color: var(--light-color);
+}
+.border-box button {
+  border-radius: 0;
+  width: 85%;
+  font-weight: 400;
+  font-size: medium;
+  height: 40px;
+  align-self: center;
+  padding: 0;
+}
+.border-box .btn-holder .warn {
+  background-color: var(--red-color);
+}
+.border-box .btn-holder .warn:hover {
+  background-color: var(--light-color);
+  border-color: var(--red-color);
+  color: var(--red-color);
+}
+.border-box .btn-holder .info {
+  background-color: var(--green-color);
+}
+.border-box .btn-holder .info:hover {
+  background-color: var(--light-color);
+  border-color: var(--green-color);
+  color: var(--green-color);
+}
+.border-box .btn-holder {
+  display: grid;
+  grid-template-columns: 30% 30% 30%;
+  gap: 0px;
+  padding: 0;
+  margin: 0;
+}
+.border-box .cb-holder {
+  background-color: var(--lighter-color);
+  color: var(--primary-color);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  padding: 3px 10px;
+}
+.border-box .cb-holder input[type="checkbox"] {
+  appearance: none;
+  background-color: #fff;
+  margin: 0;
+  font: inherit;
+  color: currentColor;
+  width: 1.15em;
+  height: 1.15em;
+  border: 0.15em solid currentColor;
+  border-radius: 0.15em;
+  transform: translateY(-0.075em);
+  display: grid;
+  place-content: center;
+}
+.border-box .cb-holder input[type="checkbox"]::before {
+  content: "";
+  width: 0.65em;
+  height: 0.65em;
+  transform: scale(0);
+  transition: 120ms transform ease-in-out;
+  box-shadow: inset 1em 1em var(--form-control-color);
+  background-color: CanvasText;
+  transform-origin: bottom left;
+  clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+  color: #047aed;
+}
+.border-box .cb-holder input[type="checkbox"]:checked::before {
+  transform: scale(1);
+}
+
+/* Main Window */
+.mainwindow .flex {
+  padding: 10px 10px;
+  height: 40px;
+  align-items: start;
+}
+
+.mainwindow .active {
+  background-color: var(--light-color);
+}
+.lginimg {
+  height: 30px;
+  width: 30px;
+}
+/* Main Window */
+.sidebar{
+  position: absolute;
+  top: 70px;
+  left: 0;
+  height: 100%;
+  width: 250px;
+}
+.sidebar li{
+  width: 250px;
+}
+.sidebar a{
+  color: var(--light-color);
+  width: 100%;
+  display: inline-block;
+  padding: 10px 10px;
+  cursor: pointer;
+}
+.sidebar button{
+  width: 100%;
+  padding: 10px 10px;
+  text-align: left;
+  background-color:  inherit;
+  outline: none;
+  border: none;
+  color: var(--light-color);
+  font-size: 15px;
+  margin-right: 20px;
+}
+.sidebar button:hover{
+  background-color: var(--light-color);
+  color: var(--primary-color);
+  cursor: pointer
+}
+.sidebar a:hover{
+  background-color: var(--light-color);
+  color: var(--primary-color);
+  cursor: pointer;
+}
+.sidebar a .activity{
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+}
+.work-area{
+  position: absolute;
+  top: 70px;
+  left: 250px;
+  right: 0px;
+  width: 80%;
+  display: inline-block;
+  height: 100%;
+}
+
+.tab .btn{
+  border-radius: 0;
+}
+.tab h3{
+  color: var(--secondary-color);
+}
+.tab .stats-heading{
+  color: var(--grey-color);
+}
+.work-area .labels{
+  display: grid;
+  grid-template-columns: auto auto auto;
+  padding-left: 10px;
+  text-align: left;
+}
+.work-area .labels .lbl-hld{
+  text-align: left;
+  color: var(--grey-color);
+}
+#students, #units, #courses, #buildings{
+  display: none;
+}
+/* Popup Modal */
+.bg-modal{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  background-color: rgba(0, 0, 0, 0);
+  align-items: center;
+  justify-content: center;
+  display: none;
+}
+.modal-content{
+  position: relative;
+  width: fit-content;
+  border-radius: 5px;
+  box-shadow: -1px 0px 20px 20px rgba(0, 0, 0, 0.2);
+
+}
+#students-mc, #units-mc, #courses-mc, #buildings-mc{
+  display: none;
+}
+#courses-mc{
+  height: 600px;
+  width: 1000px;
+}
+#courses-mc input, #buildings-mc input{
+  width: 900px;
+}
+#courses-mc .mini{
+  width: 450px;
+  gap: 20px;
+}
+#courses-mc .midi, #students-mc .midi{
+  width: 700px;
+  gap: 20px;
+}
+#courses-mc .unt-hld{
+  height: 150px;
+  width: 100%;
+  border: 1px solid var(--primary-color);
+  overflow: scroll;
+}
+.modal-content .topbar{
+  width: 100%;
+  padding: 10px 20px;
+  color: var(--primary-color);
+  display: flex;
+  height: 40px;
+  justify-content: space-between;
+}
+.modal-content .topbar .close{
+  font-size: 20px;
+}
+.modal-content .icon{
+  right: 10px;
+  top: 50%;
+}
+.modal-content .icon:hover{
+  transform: scaleY(1.5);
+}
+.modal-content .close:hover{
+  font-size: 25px;
+  color: var(--secondary-color);
+}
+
+.modal-content .tt-hld{
+  width: 150px;
+}
+.modal-content .nm-hld{
+  width: 450px;
+}
+.modal-content .form-control{
+  padding: 10px 10px;
+  gap: 10px;
+  justify-content: space-between;
+}
+.modal-content button{
+  border-radius: 0;
+  justify-self: end;
+}
+.modal-content .inst{
+  width: 40px;
+  height: inherit;
+  color: var(--light-color);
+}
+.modal-content .inst-hld{
+  width: 100%;
+  height: 40px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  border: 1px solid var(--secondary-colo)r;
+  justify-content: start;
+  gap: 1px;
+}
+.dropdown li{
+  list-style: none;
+  padding: 10px 10px;
+}
+.dropdown li:hover{
+  background-color: rgb(175, 170, 170);
+}
+.dropdown{
+  display: none;
+  background-color: var(--light-color);
+  box-shadow: -1px 0px 20px 20px rgba(0, 0, 0, 0.2);
+  position: absolute;
+  width: inherit;
+}
+.activeDrop{
+  display: block;
+}
+.tab-holder{
+  border-bottom: 1px solid rgb(172, 165, 165);
+  margin-left: 10px;
+}
+.tab-holder button{
+  background-color: #f4f4f4;
+  color: var(--primary-color);
+  border: none;
+}
+.tab-holder .on{
+  border-bottom: 2px solid var(--primary-color);
+
+}

@@ -1,0 +1,207 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400&display=swap");
+:root {
+  --primary-color: #127fece7;
+  --grey-color: #a7a5a5;
+  --green-color: rgba(9, 128, 9, 0.781);
+  --red-color: rgba(221, 38, 38, 0.938);
+}
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Lato", sans-serif;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  color: #333;
+  line-height: 1.6;
+}
+ul {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  color: #333;
+}
+
+h1,
+h2 {
+  font-weight: 300;
+  line-height: 1.2;
+  margin: 10px, 0;
+}
+.title h1{
+  font-size: 70px;
+  color: var(--primary-color);
+}
+.btn-holder{
+  gap: 5px;
+}
+
+.container {
+  width: 300px;
+  margin: 0 auto;
+  margin-top: 100px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f2f2f2;
+}
+
+.container h1 {
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 0px;
+  border: 1px solid #ccc;
+}
+.form-group input:focus-visible {
+  border-bottom: var(--primary-color) solid 2px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+  outline: none;
+}
+.form-group input[type="file"] {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+}
+.form-group input[type="file"] + label{
+  font-size: 1.25rem;
+  font-weight: 700;
+
+  
+  display: inline-block;
+}
+.mini-link{
+  color: var(--primary-color);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.upload{
+  width: 100%;
+}
+.error{
+  color: var(--red-color);
+  text-decoration: wavy;
+  font-style: italic;
+  line-height: 1;
+}
+
+.navbar {
+  background-color: var(--primary-color);
+  color: #fff;
+  height: 50px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  box-sizing: border-box;
+  border-bottom: var(--grey-color) solid 1px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.navbar h1 {
+  font-size: 24px;
+  margin: 0;
+}
+
+.navbar .account-info {
+  display: flex;
+  align-items: center;
+}
+
+.navbar .account-info svg {
+  width: 24px;
+  height: 24px;
+  margin-right: 5px;
+}
+
+.navbar .account-info span {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.navbar .logout-btn {
+  background-color: transparent;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+}
+.prompt {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  margin-top: 70px;
+}
+
+.prompt-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  max-height: calc(100vh - 100px); /* Adjust the height as needed */
+  overflow-y: scroll;
+  width: 100%; /* Added */
+}
+
+.prompt-item {
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.prompt-item:last-child {
+  margin-bottom: 0;
+}
+.user-prompt {
+  background-color: #f1f1f1;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.user-prompt input {
+  border: none;
+  outline: none;
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+.links{
+  color: white;
+  text-decoration: underline;
+}
+.links:hover{
+  font-style: italic;
+  text-decoration: none;
+}
+.g-1{
+  gap: 7px;
+}
